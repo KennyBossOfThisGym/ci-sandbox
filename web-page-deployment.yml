@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-page-go
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-page-go
+  template:
+    metadata:
+      labels:
+        app: web-page-go
+    spec:
+      containers:
+        - name: web-page-go
+          image: kennytheanalbus/ci-sandbox:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-page-go-service
+spec:
+  selector:
+    app: web-page-go
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress 
+metadata:
+  name: web-page-go-ingress
+spec:
+  rules:
+  - host: webpage.go
+    http:
+      paths:
+      - backend:
+          serviceName: web-page-go-service
+          servicePort: 80

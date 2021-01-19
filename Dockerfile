@@ -1,5 +1,8 @@
 FROM golang:1.14
 
-EXPOSE 8080
+RUN mkdir -p /var/www/go
+COPY ./web-page  /var/www/go
+WORKDIR /var/www/go
 
-ENTRYPOINT ["./web-page""]
+EXPOSE 8080
+ENTRYPOINT ["./web-page"]
