@@ -43,7 +43,7 @@ jobs:
 
       # Pack and push to docker repository
       - name: Build and Push Docker Image
-        uses: mr-smithers-excellent/docker-build-push@v4
+        uses: mr-smithers-excellent/docker-build-push@v5
         with:
           tags: v1
           image: kennytheanalbus/ci-sandbox
