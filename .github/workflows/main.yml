@@ -13,14 +13,13 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-
-  env:
-    GKE_PROJECT: "My first Project"
-    GKE_EMAIL: ${{ secrets.GKE_EMAIL }}
-    GITHUB_SHA: ${{ github.sha }}
-    GKE_ZONE: europe-west2-c
-    GKE_CLUSTER: cluster-2
-    DEPLOYMENT_NAME: web-page-go
+env:
+  GKE_PROJECT: "My first Project"
+  GKE_EMAIL: ${{ secrets.GKE_EMAIL }}
+  GITHUB_SHA: ${{ github.sha }}
+  GKE_ZONE: europe-west2-c
+  GKE_CLUSTER: cluster-2
+  DEPLOYMENT_NAME: web-page-go
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
