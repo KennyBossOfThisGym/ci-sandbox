@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: web-page-go
-          image: kennytheanalbus/ci-sandbox:latest
+          image: kennytheanalbus/ci-sandbox:v1
           resources:
             limits:
               memory: "128Mi"
